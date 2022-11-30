@@ -121,7 +121,9 @@ namespace Substitution {
         {
             base.Awake();
 
-            osc = GetComponent<OSC>() == null ? gameObject.AddComponent<OSC>() : GetComponent<OSC>();
+            GameObject participant = player.transform.parent.gameObject;
+
+            osc = participant.GetComponent<OSC>() == null ? participant.AddComponent<OSC>() : participant.GetComponent<OSC>();
 
             motorAngleMap = ComputeAngleSegments();
             // motorAngleMap.ToList().ForEach(x => Debug.Log("{" + x.Key + " : " + x.Value + "}"));
