@@ -155,9 +155,13 @@ namespace Substitution {
                 if (_previousMotor != currentMotor)
                 {
                     SendIntensity(_previousMotor, 0); // Make sure the previous motor is off
-                    // if (_previousIntensity != intensity) 
                     SendIntensity(currentMotor, intensity);
-                }                
+                }
+                // Same motor but intensity change
+                else
+                {
+                    if (_previousIntensity != intensity) SendIntensity(currentMotor, intensity);
+                }             
             }
 
             if (distanceToIBI)
