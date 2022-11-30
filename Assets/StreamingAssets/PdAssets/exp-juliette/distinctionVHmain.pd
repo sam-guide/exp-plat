@@ -1,0 +1,220 @@
+#N canvas 67 55 1853 1000 12;
+#X msg 105 -351 \; pd dsp 0;
+#X text 128 -309 OFF;
+#X msg 23 -351 \; pd dsp 1;
+#X text 41 -309 ON;
+#X obj 573 33 import mrpeach;
+#X obj 573 141 routeOSC /advis;
+#X obj 573 68 mrpeach/udpreceive 3011;
+#X obj 573 100 mrpeach/unpackOSC;
+#X msg 380 449 \; pointer_target_angle \$1;
+#X msg 433 492 \; pointing_to_the_target \$1;
+#X msg 483 537 \; inside_target \$1;
+#X msg 538 582 \; distance_to_the_target \$1;
+#X msg 590 625 \; mute \$1;
+#X msg 25 424 0;
+#X msg 61 424 1;
+#X msg 98 424 2;
+#X obj 23 550 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 38 615 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 50 669 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X text 25 391 a;
+#X text 67 390 z;
+#X text 107 391 e;
+#X floatatom 380 413 5 0 1 0 - - -, f 5;
+#X floatatom 432 412 5 0 1 0 - - -, f 5;
+#X floatatom 484 412 5 0 1 0 - - -, f 5;
+#X floatatom 536 412 5 0 1 0 - - -, f 5;
+#X floatatom 590 415 5 0 1 0 - - -, f 5;
+#X text 146 391 r;
+#X obj 65 716 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 137 424 3;
+#X obj 22 194 loadbang;
+#X floatatom 641 412 5 0 1 0 - - -, f 5;
+#X msg 639 674 \; target_behind \$1;
+#X msg 21 231 \; pointer_target_angle 0 \; pointing_to_the_target 0
+\; inside_target 0 \; distance_to_the_target 0 \; mute 0 \; target_behind
+0;
+#X floatatom 692 413 5 0 1 0 - - -, f 5;
+#X msg 697 726 \; pointer_length \$1;
+#X text 187 391 t;
+#X msg 179 424 4;
+#X obj 23 515 Decode 5;
+#X obj 78 801 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 743 413 5 0 1 0 - - -, f 5;
+#X msg 746 779 \; victory \$1;
+#X floatatom 795 413 5 0 1 0 - - -, f 5;
+#X msg 797 823 \; defeat \$1;
+#X floatatom 848 413 5 0 1 0 - - -, f 5;
+#X msg 852 870 \; start \$1;
+#X floatatom 899 412 5 0 1 0 - - -, f 5;
+#X msg 901 921 \; between_O_P \$1;
+#X obj 1451 362 soundfiler;
+#X floatatom 1454 397 5 0 0 0 - - -, f 5;
+#X obj 1463 519 line~;
+#X obj 1467 559 tabread~ victory_array;
+#X obj 1455 604 dac~;
+#N canvas 1122 442 450 300 (subpatch) 0;
+#X array victory_array 23294 float 2 black black;
+#X coords 0 1 23294 -1 200 140 1;
+#X restore 1648 393 graph;
+#X floatatom 1342 438 5 0 0 0 - - -, f 5;
+#X obj 1389 430 edge, f 5;
+#X obj 1335 392 r victory;
+#X obj 1516 43 soundfiler;
+#X floatatom 1518 67 5 0 0 0 - - -, f 5;
+#X obj 1514 171 line~;
+#X obj 1519 239 dac~;
+#X floatatom 1442 123 5 0 0 0 - - -, f 5;
+#X obj 1473 90 edge, f 5;
+#X obj 1417 62 r defeat;
+#X obj 1517 199 tabread~ defeat_array;
+#N canvas 684 314 450 300 (subpatch) 0;
+#X array defeat_array 85655 float 2 black black;
+#X coords 0 1 85655 -1 200 140 1;
+#X restore 1644 66 graph;
+#X obj 1565 756 soundfiler;
+#X floatatom 1567 791 5 0 0 0 - - -, f 5;
+#X obj 1495 849 line~;
+#X obj 1574 942 dac~;
+#X floatatom 1387 828 5 0 0 0 - - -, f 5;
+#X obj 1431 781 edge, f 5;
+#X obj 1351 741 r start;
+#N canvas 671 301 450 300 (subpatch) 0;
+#X array start_array 7084 float 2 black black;
+#X coords 0 1 7084 -1 200 140 1;
+#X restore 1674 751 graph;
+#X obj 1558 904 tabread~ start_array;
+#X obj 1567 657 loadbang;
+#X obj 1453 283 loadbang;
+#X obj 1512 -36 loadbang;
+#X msg 1509 134 0 \, 85655 1942;
+#X msg 1485 816 0 \, 7084 221;
+#X floatatom 947 411 5 0 1 0 - - -, f 5;
+#X floatatom 996 412 5 0 1 0 - - -, f 5;
+#X msg 949 530 \; distance_horizontale \$1;
+#X msg 1000 660 \; distance_verticale \$1;
+#X obj 949 468 hsl 100 15 -3 3 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 999 592 hsl 100 15 -3 3 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 1027 626 5 0 0 0 - - -, f 5;
+#X floatatom 971 511 5 0 0 0 - - -, f 5;
+#X msg 1452 464 0 \, 23294 971;
+#X msg 1451 314 read -resize -maxsize 1e+10 ../../../data/sound/victory/victory.wav
+victory_array;
+#X msg 1566 695 read -resize -maxsize 1e+10 ../../../data/sound/start/start.wav
+start_array;
+#X msg 1517 0 read -resize -maxsize 1e+10 ../../../data/sound/fail/defeat.wav
+defeat_array;
+#X obj 573 190 routeOSC /modality_number /pointer_target_angle /pointing_to_the_target
+/inside_target /distance_to_the_target /mute /target_behind /pointer_length
+/victory /defeat /start /between_O_P /distance_verticale /distance_horizontale
+/AngleTOPHorizontal /PTDeltaZ /PTHorizontal;
+#X floatatom 1052 412 5 0 1 0 - - -, f 5;
+#X floatatom 1100 411 5 0 1 0 - - -, f 5;
+#X floatatom 1149 412 5 0 1 0 - - -, f 5;
+#X msg 1060 770 \; AngleTOPHorizontal \$1;
+#X msg 1110 890 \; PTDeltaZ \$1;
+#X msg 1160 950 \; PTHorizontal \$1;
+#X text 212 -354 t b float pour bang à chaque changement de valeur
+peut-etre bondo permettrait d'être plus compact \; dbtorms https://fr.flossmanuals.net/puredata/la-synthese-audio/
+\; line http://booki.flossmanuals.net/pure-data/audio-tutorials/envelope-generator
+\; manuel: https://fr.flossmanuals.net/puredata/introduction/pb
+son: sudo alsa force-reloadhttps://itsfoss.com/fix-sound-ubuntu-1304-quick-tip/son
+jeux vidéo:https://fr.audioblocks.com/royalty-free-audiobbcsfx.acropolis.org.uk
+, f 100;
+#X obj 30 860 encodageVH1;
+#X obj 110 820 encodageVH1modification;
+#X obj 130 750 encodageVH2;
+#X text 1130 580 Distance horizontale et verticale du point P;
+#X connect 4 0 6 0;
+#X connect 5 0 92 0;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 13 0 38 0;
+#X connect 14 0 38 0;
+#X connect 15 0 38 0;
+#X connect 16 0 100 0;
+#X connect 18 0 102 0;
+#X connect 22 0 8 0;
+#X connect 23 0 9 0;
+#X connect 24 0 10 0;
+#X connect 25 0 11 0;
+#X connect 26 0 12 0;
+#X connect 29 0 38 0;
+#X connect 30 0 33 0;
+#X connect 31 0 32 0;
+#X connect 34 0 35 0;
+#X connect 37 0 38 0;
+#X connect 38 0 16 0;
+#X connect 38 1 17 0;
+#X connect 38 2 18 0;
+#X connect 38 3 28 0;
+#X connect 38 4 39 0;
+#X connect 39 0 101 0;
+#X connect 40 0 41 0;
+#X connect 42 0 43 0;
+#X connect 44 0 45 0;
+#X connect 46 0 47 0;
+#X connect 48 0 49 0;
+#X connect 50 0 51 0;
+#X connect 51 0 52 0;
+#X connect 51 0 52 1;
+#X connect 55 0 88 0;
+#X connect 56 0 54 0;
+#X connect 56 0 55 0;
+#X connect 57 0 58 0;
+#X connect 59 0 64 0;
+#X connect 62 0 78 0;
+#X connect 63 0 61 0;
+#X connect 63 0 62 0;
+#X connect 64 0 60 0;
+#X connect 64 0 60 1;
+#X connect 66 0 67 0;
+#X connect 68 0 74 0;
+#X connect 71 0 79 0;
+#X connect 72 0 70 0;
+#X connect 72 0 71 0;
+#X connect 74 0 69 0;
+#X connect 74 0 69 1;
+#X connect 75 0 90 0;
+#X connect 76 0 89 0;
+#X connect 77 0 91 0;
+#X connect 78 0 59 0;
+#X connect 79 0 68 0;
+#X connect 80 0 84 0;
+#X connect 81 0 85 0;
+#X connect 84 0 82 0;
+#X connect 84 0 87 0;
+#X connect 85 0 83 0;
+#X connect 85 0 86 0;
+#X connect 88 0 50 0;
+#X connect 89 0 48 0;
+#X connect 90 0 66 0;
+#X connect 91 0 57 0;
+#X connect 92 0 38 0;
+#X connect 92 1 22 0;
+#X connect 92 2 23 0;
+#X connect 92 3 24 0;
+#X connect 92 4 25 0;
+#X connect 92 5 26 0;
+#X connect 92 6 31 0;
+#X connect 92 7 34 0;
+#X connect 92 8 40 0;
+#X connect 92 9 42 0;
+#X connect 92 10 44 0;
+#X connect 92 11 46 0;
+#X connect 92 12 80 0;
+#X connect 92 13 81 0;
+#X connect 92 14 93 0;
+#X connect 92 15 94 0;
+#X connect 92 16 95 0;
+#X connect 93 0 96 0;
+#X connect 94 0 97 0;
+#X connect 95 0 98 0;

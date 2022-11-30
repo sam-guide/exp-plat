@@ -1,0 +1,237 @@
+{
+    "OutputTimesPerSecond": 30,
+    "IgnoreUserInputDelay": 0.5,
+    "TimingVerification": false,
+    "CHARACTER DATA": "CHARACTER DATA----------*********-------------------CHARACTER DATA",
+    "CharacterData": {
+        "Height": 2,
+        "MovementSpeed": 7.0,
+        "RotationSpeed": 75.0,
+        "DistancePickup": 2
+    },
+    
+    "BLOCK DATA": "BLOCK DATA---------------------*********--------------------BLOCK DATA",
+    
+    "BlockOrder": [1,2,3,4,5,6,1,7,8,9,10,11,12],
+    
+    "Blocks": [
+        {
+            "Block 1": "Intro",
+            "BlockInfoText": "Useful information",
+            "TrialOrder": [1]
+        },
+        {
+            "Block 2": "Condition 1 - Familiarisation 1",
+            "BlockInfoText": "Familiarisation 2D - Auto validation",
+            "BlockType": "TwoD",
+            "SpawnDistanceToPlayer": [7,10],
+            "SpawnAngleToPlayer": [-135, -90, -45, 0, 45, 90, 135, 180],
+            "IsPressToProgress": 1,
+            "ValidationType": "Collision",
+            "TrialOrder": [2,7,7,7]
+        },
+        {
+            "Block 3": "Condition 1 - Familiarisation 2",
+            "BlockInfoText": "Familiarisation 2D - Manual validation (+ feedback)",
+            "BlockType": "TwoD",
+            "SpawnDistanceToPlayer": [7,10],
+            "SpawnAngleToPlayer": [-135, -90, -45, 0, 45, 90, 135, 180],
+            "IsPressToProgress": 1,
+            "ValidationType": "ManualPlusCollision",
+            "TrialOrder": [3,7,7,7]
+        },
+        {
+            "Block 4": "Condition 1 - 1D - Before",
+            "BlockInfoText": "1D trials - Manual validation (no feedback) - Masking",
+            "BlockType": "OneD",
+            "SpawnDistanceToPlayer": [7,10],
+            "IsPressToProgress": 1,
+            "ValidationType": "Manual",
+            "IsMasked": 1,
+            "TrialOrder": [4,7,7,7,7,7,7]
+        },
+        {
+            "Block 5": "Condition 1 - 2D",
+            "BlockInfoText": "2D trials - Auto validation",
+            "BlockType": "TwoD",
+            "SpawnDistanceToPlayer": [7,10],
+            "SpawnAngleToPlayer": [-135, -90, -45, 0, 45, 90, 135, 180],
+            "IsPressToProgress": 1,
+            "ValidationType": "Collision",
+            "TrialOrder": [5,7,7,7,7,7,7]
+        },
+        {
+            "Block 6": "Condition 1 - 1D - After",
+            "BlockInfoText": "1D trials - Manual validation (no feedback) - Masking",
+            "BlockType": "OneD",
+            "SpawnDistanceToPlayer": [7,10],
+            "IsPressToProgress": 1,
+            "ValidationType": "Manual",
+            "IsMasked": 1,
+            "TrialOrder": [6,7,7,7,7,7,7]
+        },
+        {
+            "Block 7": "Condition 2 - Familiarisation 1",
+            "BlockInfoText": "Familiarisation 2D - Auto validation",
+            "BlockType": "TwoD",
+            "SpawnDistanceToPlayer": [7,10],
+            "SpawnAngleToPlayer": [-135, -90, -45, 0, 45, 90, 135, 180],
+            "IsPressToProgress": 1,
+            "ValidationType": "Collision",
+            "TrialOrder": [2,8,8,8]
+        },
+        {
+            "Block 8": "Condition 2 - Familiarisation 2",
+            "BlockInfoText": "Familiarisation 2D - Manual validation (+ feedback)",
+            "BlockType": "TwoD",
+            "SpawnDistanceToPlayer": [7,10],
+            "SpawnAngleToPlayer": [-135, -90, -45, 0, 45, 90, 135, 180],
+            "IsPressToProgress": 1,
+            "ValidationType": "ManualPlusCollision",
+            "TrialOrder": [3,8,8,8]
+        },
+        {
+            "Block 9": "Condition 2 - 1D - Before",
+            "BlockInfoText": "1D trials - Manual validation (no feedback) - Masking",
+            "BlockType": "OneD",
+            "SpawnDistanceToPlayer": [7,10],
+            "IsPressToProgress": 1,
+            "ValidationType": "Manual",
+            "IsMasked": 1,
+            "TrialOrder": [4,8,8,8,8,8,8]
+        },
+        {
+            "Block 10": "Condition 2 - 2D",
+            "BlockInfoText": "2D trials - Auto validation",
+            "BlockType": "TwoD",
+            "SpawnDistanceToPlayer": [7,10],
+            "SpawnAngleToPlayer": [-135, -90, -45, 0, 45, 90, 135, 180],
+            "IsPressToProgress": 1,
+            "ValidationType": "Collision",
+            "TrialOrder": [5,8,8,8,8,8,8,8]
+        },
+        {
+            "Block 11": "Condition 2 - 1D - After",
+            "BlockInfoText": "1D trials - Manual validation (no feedback) - Masking",
+            "BlockType": "OneD",
+            "SpawnDistanceToPlayer": [7,10],
+            "IsPressToProgress": 1,
+            "ValidationType": "Manual",
+            "IsMasked": 1,
+            "TrialOrder": [6,8,8,8,8,8,8,8]
+        },
+        {
+            "Block 12": "End",
+            "BlockInfoText": "End",
+            "TrialOrder": [9]
+        }
+    ],
+    
+    "TRIAL DATA": "TRIAL DATA--------------------*********------------------TRIAL DATA",
+    
+    "Trials": [
+        {
+            "Trial 1" : "Welcome Page",
+            "Instructional": 1,
+            "FileLocation": "Welcome2.png",
+            "TrialEndKey": "Space"
+        },
+        {
+            "Trial 2" : "Instructions - Familiarisation 2D (1/2)",
+            "Instructional": 1,
+            "FileLocation": "2D_Familiarisation_1.jpg",
+            "TrialEndKey": "Space"
+        },
+        {
+            "Trial 3" : "Instructions - Familiarisation 2D (2/2)",
+            "Instructional": 1,
+            "FileLocation": "2D_Familiarisation_2.jpg",
+            "TrialEndKey": "Space"
+        },
+        {
+            "Trial 4" : "Instructions - 1D (Before)",
+            "Instructional": 1,
+            "FileLocation": "1D_Before.jpg",
+            "TrialEndKey": "Space"
+        },
+        {
+            "Trial 5" : "Instructions - 2D",
+            "Instructional": 1,
+            "FileLocation": "2D.jpg",
+            "TrialEndKey": "Space"
+        },
+        {
+            "Trial 6" : "Instructions - 1D (After)",
+            "Instructional": 1,
+            "FileLocation": "1D_After.jpg",
+            "TrialEndKey": "Space"
+        },
+        {
+            "Trial 7": "Condition 1 - Main Trial",
+            "Scene": 2,
+            "Enclosure": 1,
+            "StartPosition": [0, 0.5, 0],
+            "StartFacing": 90,
+            "BeaconList": [1],
+            "TrialEndKey": "x"
+        },
+        {
+            "Trial 8": "Condition 2 - Main Trial",
+            "Scene": 2,
+            "Enclosure": 1,
+            "BeaconList": [2],
+            "TrialEndKey": "x"
+        },
+        {
+            "Trial 9": "End",
+            "Instructional": 1,
+            "FileLocation": "End.png",
+            "TrialEndKey": "x"
+        }
+    ],
+    "BEACON DATA": "BEACON DATA--------------------*********------------------BEACON DATA",
+    "Beacons": [
+        {
+            "Beacon 1" : "Substitution Audio (Manual)",
+            "Object": "Sphere",
+            "Position": [],
+            "Rotation": [0, 0, 0],
+            "Scale": [1, 1, 1],
+            "BeaconType": "Target",
+            "TriggerSound": "money",
+            "FeedbackModality": "Audio",
+            "AudioFeedbackType": "SubstitutionManual",
+            "DistanceEncoding": "IBI",
+            "AngleEncoding": "Frequency"
+        },
+        {
+            "Beacon 2" : "Substitution Audio (Manual)",
+            "Object": "Sphere",
+            "Position": [],
+            "Rotation": [0, 0, 0],
+            "Scale": [1, 1, 1],
+            "BeaconType": "Target",
+            "TriggerSound": "money",
+            "FeedbackModality": "Audio",
+            "AudioFeedbackType": "SubstitutionManual",
+            "DistanceEncoding": "Intensity",
+            "AngleEncoding": "Frequency"
+        }
+    ],
+    "LANDMARK DATA": "LANDMARK DATA----------*********------------------LANDMARK DATA",
+    "Landmarks": [],
+    "Enclosure DATA": "Enclosure DATA--------------------*********------------------Enclosure DATA",
+    "Enclosures": [
+        {
+            "Enclosure 1": "Enclosre 1",
+            "Sides": 4,
+            "Radius": 30,
+            "WallHeight": 4,
+            "WallColor": "ffffff",
+            "GroundTileSides": 4,
+            "GroundTileSize": 1.0,
+            "GroundColor": "000000",
+            "Position": [0, 0]
+        }
+    ]
+}

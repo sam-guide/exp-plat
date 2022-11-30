@@ -1,0 +1,215 @@
+#N canvas 67 55 1853 1000 12;
+#X msg 105 -201 \; pd dsp 0;
+#X text 128 -159 OFF;
+#X msg 23 -201 \; pd dsp 1;
+#X text 41 -159 ON;
+#X obj 340 173 import mrpeach;
+#X obj 340 282 routeOSC /advis;
+#X obj 340 208 mrpeach/udpreceive 3011;
+#X obj 340 240 mrpeach/unpackOSC;
+#X msg 380 449 \; pointer_target_angle \$1;
+#X msg 433 492 \; pointing_to_the_target \$1;
+#X msg 483 537 \; inside_target \$1;
+#X msg 538 582 \; distance_to_the_target \$1;
+#X msg 590 625 \; mute \$1;
+#X msg 25 424 0;
+#X msg 61 424 1;
+#X msg 98 424 2;
+#X obj 23 550 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 38 615 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X obj 50 669 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X text 25 391 a;
+#X text 67 390 z;
+#X text 107 391 e;
+#X floatatom 380 413 5 0 1 0 - - -, f 5;
+#X floatatom 432 412 5 0 1 0 - - -, f 5;
+#X floatatom 484 412 5 0 1 0 - - -, f 5;
+#X floatatom 536 412 5 0 1 0 - - -, f 5;
+#X floatatom 590 415 5 0 1 0 - - -, f 5;
+#X text 146 391 r;
+#X obj 65 716 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 137 424 3;
+#X obj 31 123 loadbang;
+#X floatatom 641 412 5 0 1 0 - - -, f 5;
+#X msg 639 674 \; target_behind \$1;
+#X msg 30 160 \; pointer_target_angle 0 \; pointing_to_the_target 0
+\; inside_target 0 \; distance_to_the_target 0 \; mute 0 \; target_behind
+0;
+#X floatatom 692 413 5 0 1 0 - - -, f 5;
+#X msg 697 726 \; pointer_length \$1;
+#X text 187 391 t;
+#X msg 179 424 4;
+#X obj 23 515 Decode 5;
+#X obj 78 801 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 743 413 5 0 1 0 - - -, f 5;
+#X msg 746 779 \; victory \$1;
+#X text 212 -199 t b float pour bang à chaque changement de valeur
+peut-etre bondo permettrait d'être plus compact \; dbtorms https://fr.flossmanuals.net/puredata/la-synthese-audio/
+\; line http://booki.flossmanuals.net/pure-data/audio-tutorials/envelope-generator
+\; manuel: https://fr.flossmanuals.net/puredata/introduction/pb
+son: sudo alsa force-reloadhttps://itsfoss.com/fix-sound-ubuntu-1304-quick-tip/son
+jeux vidéo:https://fr.audioblocks.com/royalty-free-audiobbcsfx.acropolis.org.uk
+, f 100;
+#X floatatom 795 413 5 0 1 0 - - -, f 5;
+#X msg 797 823 \; defeat \$1;
+#X obj 338 580 angle-frequence;
+#X obj 240 720 distance-intensite-log;
+#X floatatom 848 413 5 0 1 0 - - -, f 5;
+#X msg 852 870 \; start \$1;
+#X floatatom 899 412 5 0 1 0 - - -, f 5;
+#X msg 901 921 \; between_O_P \$1;
+#X obj 340 307 routeOSC /modality_number /pointer_target_angle /pointing_to_the_target
+/inside_target /distance_to_the_target /mute /target_behind /pointer_length
+/victory /defeat /start /between_O_P /distance_verticale /distance_horizontale
+;
+#X floatatom 947 411 5 0 1 0 - - -, f 5;
+#X floatatom 996 412 5 0 1 0 - - -, f 5;
+#X msg 948 617 \; distance_horizontale \$1;
+#X msg 1032 737 \; distance_verticale \$1;
+#X obj 949 547 hsl 100 15 -3 3 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 9900 1;
+#X obj 1031 669 hsl 100 15 -3 3 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 9900 1;
+#X floatatom 1059 703 5 0 0 0 - - -, f 5;
+#X floatatom 971 590 5 0 0 0 - - -, f 5;
+#X obj 239 642 distance-intensite-log-sans-bruit-blanc;
+#X obj 152 800 angle-frequence-sans-bruit-blanc;
+#X obj 1392 580 soundfiler;
+#X floatatom 1393 617 5 0 0 0 - - -, f 5;
+#X obj 1407 767 line~;
+#X obj 1410 806 tabread~ victory_array;
+#X obj 1414 862 dac~;
+#N canvas 992 312 450 300 (subpatch) 0;
+#X array victory_array 23294 float 2 black black;
+#X coords 0 1 23294 -1 200 140 1;
+#X restore 1508 596 graph;
+#X floatatom 1303 697 5 0 0 0 - - -, f 5;
+#X obj 1347 650 edge, f 5;
+#X obj 1302 599 r victory;
+#X obj 1791 523 soundfiler;
+#X floatatom 1817 558 5 0 0 0 - - -, f 5;
+#X obj 1833 714 line~;
+#X obj 1840 810 dac~;
+#X floatatom 1735 625 5 0 0 0 - - -, f 5;
+#X obj 1773 599 edge, f 5;
+#X obj 1728 557 r defeat;
+#X obj 1836 754 tabread~ defeat_array;
+#N canvas 645 275 450 300 (subpatch) 0;
+#X array defeat_array 85655 float 2 black black;
+#X coords 0 1 85655 -1 200 140 1;
+#X restore 1889 504 graph;
+#X obj 1606 326 line~;
+#X obj 1613 422 dac~;
+#N canvas 658 288 450 300 (subpatch) 0;
+#X array start_array 7084 float 2 black black;
+#X coords 0 1 7084 -1 200 140 1;
+#X restore 1725 202 graph;
+#X obj 1610 366 tabread~ start_array;
+#X obj 1353 494 loadbang;
+#X obj 1695 423 loadbang;
+#X msg 1824 662 0 \, 85655 1942;
+#X obj 1610 188 soundfiler;
+#X floatatom 1612 223 5 0 0 0 - - -, f 5;
+#X floatatom 1465 261 5 0 0 0 - - -, f 5;
+#X obj 1525 231 edge, f 5;
+#X obj 1459 169 r start;
+#X obj 1611 93 loadbang;
+#X msg 1596 285 0 \, 7084 221;
+#X msg 1399 713 0 \, 23294 971;
+#X msg 1611 127 read -resize -maxsize 1e+10 ../../../data/sound/start/start.wav
+start_array;
+#X msg 1698 457 read -resize -maxsize 1e+10 ../../../data/sound/fail/defeat.wav
+defeat_array;
+#X msg 1355 532 read -resize -maxsize 1e+10 ../../../data/sound/victory/victory.wav
+victory_array;
+#X obj 30 870 distance-frequence;
+#X text 30 360 Choix des encodages;
+#X text 10 -130 Activation du son;
+#X text 1260 400 Sons de démarrage \, victoire et défaite;
+#X text 750 250 Acquisition des paramètres spatiaux provenant du C++
+;
+#X connect 4 0 6 0;
+#X connect 5 0 51 0;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 13 0 38 0;
+#X connect 14 0 38 0;
+#X connect 15 0 38 0;
+#X connect 16 0 98 0;
+#X connect 17 0 45 0;
+#X connect 18 0 60 0;
+#X connect 22 0 8 0;
+#X connect 23 0 9 0;
+#X connect 24 0 10 0;
+#X connect 25 0 11 0;
+#X connect 26 0 12 0;
+#X connect 28 0 46 0;
+#X connect 29 0 38 0;
+#X connect 30 0 33 0;
+#X connect 31 0 32 0;
+#X connect 34 0 35 0;
+#X connect 37 0 38 0;
+#X connect 38 0 16 0;
+#X connect 38 1 17 0;
+#X connect 38 2 18 0;
+#X connect 38 3 28 0;
+#X connect 38 4 39 0;
+#X connect 39 0 61 0;
+#X connect 40 0 41 0;
+#X connect 43 0 44 0;
+#X connect 47 0 48 0;
+#X connect 49 0 50 0;
+#X connect 51 1 22 0;
+#X connect 51 2 23 0;
+#X connect 51 3 24 0;
+#X connect 51 4 25 0;
+#X connect 51 5 26 0;
+#X connect 51 6 31 0;
+#X connect 51 7 34 0;
+#X connect 51 8 40 0;
+#X connect 51 9 43 0;
+#X connect 51 10 47 0;
+#X connect 51 11 49 0;
+#X connect 51 12 52 0;
+#X connect 51 13 53 0;
+#X connect 52 0 56 0;
+#X connect 53 0 57 0;
+#X connect 56 0 54 0;
+#X connect 56 0 59 0;
+#X connect 57 0 55 0;
+#X connect 57 0 58 0;
+#X connect 62 0 63 0;
+#X connect 64 0 65 0;
+#X connect 65 0 66 0;
+#X connect 65 0 66 1;
+#X connect 69 0 94 0;
+#X connect 70 0 68 0;
+#X connect 70 0 69 0;
+#X connect 71 0 72 0;
+#X connect 73 0 78 0;
+#X connect 76 0 86 0;
+#X connect 77 0 75 0;
+#X connect 77 0 76 0;
+#X connect 78 0 74 0;
+#X connect 78 0 74 1;
+#X connect 80 0 83 0;
+#X connect 83 0 81 0;
+#X connect 83 0 81 1;
+#X connect 84 0 97 0;
+#X connect 85 0 96 0;
+#X connect 86 0 73 0;
+#X connect 87 0 88 0;
+#X connect 90 0 93 0;
+#X connect 91 0 89 0;
+#X connect 91 0 90 0;
+#X connect 92 0 95 0;
+#X connect 93 0 80 0;
+#X connect 94 0 64 0;
+#X connect 95 0 87 0;
+#X connect 96 0 71 0;
+#X connect 97 0 62 0;
